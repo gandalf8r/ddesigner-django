@@ -1,0 +1,18 @@
+{% load static %}
+
+<div class="pagination">
+    <span class="step-links">
+        {% if page_obj.has_previous %}
+            <a class="pag-first" href="?page=1">&laquo; first</a>
+            <a class="pag-previous" href="?page={{ page_obj.previous_page_number }}"><img class="pag-prev-arrow" src="{% static 'portfolio/images/pag-arrow.svg' %}" alt="pag-prev-arrow-pic"></a>
+        {% endif %}
+
+        {% if page_obj.has_next %}
+            <a class="pag-next" href="?page={{ page_obj.next_page_number }}"><img class="pag-next-arrow" src="{% static 'portfolio/images/pag-arrow.svg' %}" alt="pag-next-arrow-pic"></a>
+            <a class="pag-last" href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
+        {% endif %}
+    </span>
+    <span class="current  current-page">
+        Page <span class="highlight-num">{{ page_obj.number }}</span> of {{ page_obj.paginator.num_pages }}.
+    </span>
+</div>

@@ -1,0 +1,186 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+    <!-- WELCOME -->
+    <section class="section welcome" id="section-1">
+        <div class="container">
+            <div class="welcome__wrapper">
+                <h1 class="welcome__title">Welcome!</h1>
+                <h2 class="welcome__subtitle">I am <span
+                        class="welcome__subtitle welcome__subtitle_colored">Web Designer</span></h2>
+                <div class="welcome__btns">
+                    <a class="welcome__btn" href="{% url 'web_content' %}">View Work</a>
+                    <a class="welcome__btn welcome__btn_colored" href="#section-6">Hire Me!</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="section about" id="section-2">
+        <div class="container">
+            <h2 class="main-title title-primary about__title_outer">About Me</h2>
+            <div class="about__wrapper">
+                <div class="about__block about__block_paddings">
+                    <h2 class="main-title about__title_inner">About Me</h2>
+                    <div class="about__skills">
+                        <div class="about__skills-item">
+                            <span>UI | UX</span>
+                            <div class="hollow-line">
+                                <div class="colored-line colored-line_80"></div>
+                            </div>
+                        </div>
+                        <div class="about__skills-item">
+                            <span>Graphic</span>
+                            <div class="hollow-line">
+                                <div class="colored-line colored-line_60"></div>
+                            </div>
+                        </div>
+                        <div class="about__skills-item">
+                            <span>Branding</span>
+                            <div class="hollow-line">
+                                <div class="colored-line colored-line_50"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="about__block about__block_img_mini">
+                        <img src="{% static 'portfolio/images/designer_photo_about_mini.png' %}" alt="about_designer">
+                    </div>
+                </div>
+                <div class="about__block about__block_img">
+                    <img src="{% static 'portfolio/images/designer_photo_about.png' %}" alt="about_designer">
+                </div>
+                <div class="about__block about__block_info">
+                    <span class="who-am-i">WHO AM I</span>
+                    <h3>Daryna Dmytrenko</h3>
+                    <p>
+                        {{ add_cv }}
+                    </p>
+                    <div class="about__social">
+                        <span>Follow me:</span>
+                        <div class="about__social-line"></div>
+                        <div class="about__social-block">
+                            <a class="about__social-link" href="https://www.linkedin.com/in/daryna-dmytrenko-064a1320a/"><img
+                                    src="{% static 'portfolio/images/linkedin.svg' %}" alt="linkedin_icon"></a>
+                            <a class="about__social-link" href="https://www.instagram.com/dasha.dmytrenko/"><img
+                                    src="{% static 'portfolio/images/instagram.svg' %}" alt="instagram_icon"></a>
+                            <a class="about__social-link" href="https://www.facebook.com/DarynaDmytrenko.5/"><img
+                                    src="{% static 'portfolio/images/facebook.svg' %}" alt="facebook_icon"></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section class="section services" id="section-3">
+        <div class="container">
+            <div class="services__wrapper">
+                <h2 class="main-title title-primary">Services</h2>
+                <ul class="services__list">
+                    <li class="services__item">
+                        <a class="services__link" href="#">
+                            <div class="services__figure">
+                                <div class="inner-figure">
+                                    <img class="services__img" src="{% static 'portfolio/images/1.svg' %}"
+                                         alt="service-icon">
+                                </div>
+                            </div>
+                            <span class="services__service-title">UI Design</span>
+                            <p class="services__info">
+                                Design user interfaces, create control elements, color schemes, fonts, animations, and
+                                other
+                                visual elements to ensure the best user experience.
+                            </p>
+                        </a>
+                    </li>
+                    <li class="services__item">
+                        <a class="services__link" href="#">
+                            <div class="services__figure">
+                                <div class="inner-figure">
+                                    <img class="services__img" src="{% static 'portfolio/images/2.svg' %}"
+                                         alt="service-icon">
+                                </div>
+                            </div>
+                            <span class="services__service-title">UX Design</span>
+                            <p class="services__info">
+                                Conduct user behavior research, create usage scenarios, develop prototypes, test and
+                                optimize the user experience of applications and websites.
+                            </p>
+                        </a>
+                    </li>
+                    <li class="services__item">
+                        <a class="services__link" href="#">
+                            <div class="services__figure">
+                                <div class="inner-figure">
+                                    <img class="services__img" src="{% static 'portfolio/images/3.svg' %}"
+                                         alt="service-icon">
+                                </div>
+                            </div>
+                            <span class="services__service-title">Graphic Design</span>
+                            <p class="services__info">
+                                Create unique visual elements such as logos, images, banners, and packaging that help
+                                improve branding and connect with the target audience.
+                            </p>
+                        </a>
+                    </li>
+                    <li class="services__item">
+                        <a class="services__link" href="#">
+                            <div class="services__figure">
+                                <div class="inner-figure">
+                                    <img class="services__img" src="{% static 'portfolio/images/4.svg' %}"
+                                         alt="service-icon">
+                                </div>
+                            </div>
+                            <span class="services__service-title">Branding</span>
+                            <p class="services__info">
+                                Create unique brand identities such as logos, color schemes, and typography that help
+                                stand
+                                out in the market and establish an emotional connection with the target audience.
+                            </p>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- PORTFOLIO -->
+    <section class="section portfolio" id="section-4">
+        <div class="container">
+            <div class="portfolio__wrapper">
+                <h2 class="main-title title-primary">Portfolio</h2>
+                {% include 'portfolio/includes/main-tabs.html' %}
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="section contact" id="section-6">
+        <div class="container">
+            <h2 class="main-title title-primary">Contact Me</h2>
+            <div class="contact__wrapper">
+                <div class="contact__contacts">
+                    <div class="contact__box">
+                        <div class="contact__phone">
+                            <span class="contact__mini-title">Telegram</span>
+                            <a href="https://t.me/DarynaDmytrenko" class="phone-number">@DarynaDmytrenko</a>
+                        </div>
+                        <div class="contact__location">
+                            <span class="contact__mini-title">CITY</span>
+                            <span class="location-subtext">Ukraine, Lviv</span>
+                        </div>
+                    </div>
+                    <div class="contact__email">
+                        <span class="contact__mini-title">EMAIL</span>
+                        <a href="mailto:workdaryna@gmail.com" class="email-link">workdaryna@gmail.com</a>
+                    </div>
+                </div>
+                {% include 'portfolio/includes/contacts.html' %}
+            </div>
+        </div>
+    </section>
+{% endblock %}

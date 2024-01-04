@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+    <div class="container">
+        <div class="one__project">
+            <h1 class="one__project-title">{{ project.title }}</h1>
+
+            {% if project.image %}
+                <div class="one__project-img"><img class="preview-img" src="{{ project.image.url }}"><img
+                        class="make-big" src="{% static 'portfolio/images/make-big.svg' %}" alt="make-big-pic"></div>
+            {% endif %}
+
+            <p class="one__project-text">{{ project.content }}</p>
+        </div>
+    </div>
+    <div class="project-popup">
+        <div class="container">
+            <div class="project-popup__block">
+                <div class="project-popup__exit-btn">
+                    <img src="{% static 'portfolio/images/popup-exit-btn.svg' %}" alt="exit-pic">
+                </div>
+                <div class="scroll-box">
+                    <img src="{{ project.big_image.url }}" alt="big-img-icon" class="project-popup__img">
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

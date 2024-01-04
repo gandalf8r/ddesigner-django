@@ -1,0 +1,57 @@
+{% load portfolio_tags %}
+
+<div class="portfolio__tabs tabs">
+    <div class="tabs__nav">
+        {% get_categories as categories %}
+        {% for cat in categories %}
+            <button class="tabs__nav-btn" data-tab="{{ cat.data_tab }}">{{ cat.name }}</button>
+        {% endfor %}
+        <a href="{% url 'web_content' %}" class="tabs-link">ALL</a>
+    </div>
+    <div class="tabs__content" id="tab_1">
+        <div class="portfolio__web-slider">
+            <!-- If we need navigation buttons -->
+            <div class="web-slider-btn swiper-button-prev"></div>
+            <div class="web-slider-btn swiper-button-next"></div>
+            <!-- Slider main container -->
+            <div class="web-slider swiper">
+                <!-- Additional required wrapper -->
+                <div class="web-slider__wrapper swiper-wrapper">
+                    <!-- Slides -->
+                    {% for web_project in web_projects %}
+                        <div class="graphic-slider__slide swiper-slide">
+                            <a href="{{ web_project.get_absolute_url }}" class="graphic-slider__link">
+                                <img loading="lazy" src="{{ web_project.image.url }}" alt="slider-pic">
+                            </a>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+            <!-- If we need pagination -->
+            <div class="web-slider-pagination swiper-pagination"></div>
+        </div>
+    </div>
+    <div class="tabs__content" id="tab_2">
+        <div class="portfolio__graphic-slider">
+            <!-- If we need navigation buttons -->
+            <div class="graphic-slider-btn swiper-button-prev"></div>
+            <div class="graphic-slider-btn swiper-button-next"></div>
+            <!-- Slider main container -->
+            <div class="graphic-slider swiper">
+                <!-- Additional required wrapper -->
+                <div class="graphic-slider__wrapper swiper-wrapper">
+                    <!-- Slides -->
+                    {% for graphic_project in graphic_projects %}
+                        <div class="graphic-slider__slide swiper-slide">
+                            <a href="{{ graphic_project.get_absolute_url }}" class="graphic-slider__link">
+                                <img src="{{ graphic_project.image.url }}" alt="slider-pic">
+                            </a>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+            <!-- If we need pagination -->
+            <div class="graphic-slider-pagination swiper-pagination"></div>
+        </div>
+    </div>
+</div>

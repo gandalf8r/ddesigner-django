@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <section class="gallery">
+        <div class="container">
+            <h1 class="main-title title-primary gallery__title">Portfolio</h1>
+            <div class="portfolio__tabs tabs">
+                <div class="gallery__cats">
+                    <a href="#" class="gallery-btn active">WEB</a>
+                    <a href="{% url 'graphic_content' %}" class="gallery-btn">GRAPHIC</a>
+                </div>
+                <div class="web__content">
+                    <ul class="gallery__list">
+                        {% for web_project in page_obj %}
+                            <li class="gallery__item">
+                                <a href="{{ web_project.get_absolute_url }}" class="gallery__link">
+                                    <div class="gallery__img-wrapper">
+                                        <img loading="lazy" src="{{ web_project.image.url }}" alt="gallery-pic">
+                                    </div>
+                                    <p class="gallery__text">
+                                        {{ web_project.content }}
+                                    </p>
+                                </a>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                    {% include 'portfolio/includes/pagination.html' %}
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
